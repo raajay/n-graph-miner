@@ -18,7 +18,7 @@ that can be used to mine frequent partial orders from a given data stream.
 Refer to the paper for the working of the algorithm and the description of 
 terminology and parameters.
 
-USAGE : ./bin/n-graph-miner <datastream> <frequency threshold> <entropy threshold> <expiry time> <freq episodes output>
+USAGE : ./bin/n-graph-miner datastream frequencyThreshold entropyThreshold expiryTime freqEpisodesOutputFile
 
 Description of the data stream : 
 -------------------------------
