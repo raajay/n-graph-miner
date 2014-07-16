@@ -2,4 +2,4 @@ maxLengthSize: 10
 numMaxPaths: 1000
 maxEvents: 26
 maxSize: 3
-episodeType: general
+episodeType: parallel
