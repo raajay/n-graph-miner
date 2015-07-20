@@ -3,3 +3,8 @@ obj/
 freqEpisodes
 inputfile
 stream.txt
+Makefile
+.idea/
+cmake_install.cmake
+CMakeFiles/
+CMakeCache.txt
