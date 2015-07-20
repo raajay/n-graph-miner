@@ -104,7 +104,10 @@ void FrequentEpisodes::generateCandidates(stEpisodeGel prevHead,stEpisodeGel& He
 
 }
 
-void FrequentEpisodes::generatePossibleCandidates(alpha *pstEpi1,alpha *pstEpi2,alpha *(pstTemp[3]),int iEventLen)
+void FrequentEpisodes::generatePossibleCandidates(alpha *pstEpi1,
+                                                  alpha *pstEpi2,
+                                                  alpha *(pstTemp[3]),
+                                                  int iEventLen)
 {
     int iTemp =0;
     int iDirFlag =0;
@@ -321,7 +324,7 @@ int FrequentEpisodes::addCandidateEpisode(stEpisodeGel& Head, alpha *pstNode, al
 
 
 
-void FrequentEpisodes::findFreqEpisodes(void)
+void FrequentEpisodes::findFreqEpisodes()
 {
     fstream fout;
     fout.open(outfile.c_str(),ios::out);
