@@ -1,4 +1,5 @@
-#include"super.h"
+#include "super.h"
+#include "FrequentEpisodes.h"
 
 int main(int argc,char* argv[])
 {
@@ -101,7 +102,7 @@ int main(int argc,char* argv[])
 	}
 	cout<<endl<<endl;
 
-	freqEpisodes theOne(expTime,freqTresh,entropyTresh,maxLength,maxWidth,fudgeFac,maxSiz,maxEvents,infile,outfile,episodeType);
+	FrequentEpisodes theOne(expTime,freqTresh,entropyTresh,maxLength,maxWidth,fudgeFac,maxSiz,maxEvents,infile,outfile,episodeType);
 	// parser_flag == false implies full apriori counting
 	if(parser_flag == false)
 	{

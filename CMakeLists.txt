@@ -5,4 +5,4 @@ project(n_graph_miner)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
-add_executable(n_graph_miner ${SOURCES})
+add_executable(n_graph_miner ${SOURCES} ${HEADERS})
