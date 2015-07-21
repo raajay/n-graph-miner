@@ -25,6 +25,7 @@ class FrequentEpisodes
     vector <stEpisodeGel> GelHeads;
 
 public:
+
     int addCandidateEpisode(stEpisodeGel& Head, alpha *pstNode, alpha **pstBlockStart,const int iFrequency);
     int existSubEpisode(alpha*,int*,bool**,int);
     void generatePossibleCandidates(alpha*,alpha*,alpha**,int);

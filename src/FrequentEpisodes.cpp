@@ -106,7 +106,8 @@ void FrequentEpisodes::generateCandidates(stEpisodeGel prevHead,stEpisodeGel& He
 
 void FrequentEpisodes::generatePossibleCandidates(alpha *pstEpi1,
                                                   alpha *pstEpi2,
-                                                  alpha *(pstTemp[3]),
+                                                  alpha **pstTemp,
+                                                  //alpha *(pstTemp[3]),
                                                   int iEventLen)
 {
     int iTemp =0;
