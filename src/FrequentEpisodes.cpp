@@ -13,8 +13,8 @@ FrequentEpisodes::FrequentEpisodes(double expTime1,int tresh1,double entTresh1,i
 {
     expTime = expTime1;
     //cout << "Expiry Time = "<<expTime;
-    tresh = tresh1;
-    entTresh = entTresh1;
+    frequencyThreshold = tresh1;
+    bidirectionalEvidenceThreshold = entTresh1;
     maxLength = maxLen1;
     maxWidth = maxWid1;
     maxSiz = maxSiz1;
@@ -367,7 +367,7 @@ void FrequentEpisodes::initCandidates(stEpisodeGel& GelHead)
 void FrequentEpisodes::findFreqCandids(stEpisodeGel& GelHead)
 {
     cout<<"Number of "<<GelHead.iEventLength<<"-node candidates being counted = "<<GelHead.iEpisodeListLength<<endl;
-    cout << "Frequency treshhold = " << tresh << endl;
+    cout << "Frequency treshhold = " << frequencyThreshold << endl;
     // Getting the event stream
     StreamReader evntStream(filename);
     // Initializing waitslist.. declaring the waitslist struc and adding the initwaits of all candidates
@@ -669,12 +669,17 @@ void FrequentEpisodes::findFreqCandids(stEpisodeGel& GelHead)
         alphaNext = alphaIter->pNext;
         //cout << alphaIter->iFrequency;
         automaton* autoIterNext;
-        for(automaton* autoIter=alphaIter->automataList;autoIter!=NULL;autoIter=autoIterNext)
-        { autoIterNext = autoIter->pNext; autoIter->deleteMat(eLen); delete autoIter;}
+        for(automaton* autoIter=alphaIter->automataList;autoIter!=NULL;autoIter=autoIterNext) {
+            autoIterNext = autoIter->pNext;
+            autoIter->deleteMat(eLen);
+            delete autoIter;
+        }
+
         alphaIter->automataList = NULL;
-        double fcuk = alphaIter->calculate_entropy(GelHead.iEventLength);
-        alphaIter->entropy = fcuk;
-        if( fcuk < entTresh || alphaIter->iFrequency < tresh)
+
+        double current_entropy = alphaIter->calculate_entropy(GelHead.iEventLength);
+        alphaIter->entropy = current_entropy;
+        if( current_entropy < bidirectionalEvidenceThreshold || alphaIter->iFrequency < frequencyThreshold)
         {
 
             if(alphaPrev == NULL)
@@ -685,11 +690,13 @@ void FrequentEpisodes::findFreqCandids(stEpisodeGel& GelHead)
             delete alphaIter;
             GelHead.iEpisodeListLength--;
         }
-        else {alphaPrev = alphaIter;}
+        else {
+            alphaPrev = alphaIter;
+        }
     }
 #endif
     cout << "NUmber of Frequent "<<eLen<<"-Node episodes = "<<GelHead.iEpisodeListLength<<endl<<endl;
-    tresh = int(tresh * fudgeFac);
+    frequencyThreshold = int(frequencyThreshold * fudgeFac);
 }
 
 void FrequentEpisodes::cleanupWaits(beta** waitsList)
@@ -825,8 +832,6 @@ void FrequentEpisodes::filter(int siz)
             if(compare_event(pstEpisodeIter1->paiEvents,pstEpisodeIter2->paiEvents,eLen))
             {
                 flag = compare_containment( (pstEpisodeIter1->ppEventMatrix), (pstEpisodeIter2->ppEventMatrix),eLen);
-#if 0
-#endif
 
                 if(flag == 1) // to remove the structure pointed by pstEpisodeIter2.
                 {

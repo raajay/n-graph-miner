@@ -12,10 +12,10 @@
 
 class FrequentEpisodes
 {
-    int tresh;
+    int frequencyThreshold;
     int maxSiz,maxLength,maxWidth;
     int maxEvents;
-    double expTime,fudgeFac,entTresh;
+    double expTime,fudgeFac, bidirectionalEvidenceThreshold;
     int episodeType;
     char filename[100];
     string outfile;
