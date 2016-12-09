@@ -10,8 +10,7 @@
 #include "StEpisodeGel.h"
 
 
-class FrequentEpisodes
-{
+class FrequentEpisodes {
     int tresh;
     int maxSiz,maxLength,maxWidth;
     int maxEvents;
@@ -24,7 +23,7 @@ class FrequentEpisodes
 
     vector <stEpisodeGel> GelHeads;
 
-public:
+  public:
 
     int addCandidateEpisode(stEpisodeGel& Head, alpha *pstNode, alpha **pstBlockStart,const int iFrequency);
     int existSubEpisode(alpha*,int*,bool**,int);

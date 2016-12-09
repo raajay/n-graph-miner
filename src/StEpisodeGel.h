@@ -7,9 +7,8 @@
 
 #include "Alpha.h"
 
-class stEpisodeGel
-{
-public:
+class stEpisodeGel {
+  public:
     int iEpisodeListLength;
     int iEventLength;
     alpha* ptrAlpha;

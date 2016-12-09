@@ -6,9 +6,8 @@
 #define N_GRAPH_MINER_BETA_H
 #include "Automaton.h"
 #include "Alpha.h"
-class beta
-{
-public:
+class beta {
+  public:
     alpha* ptrAlpha;
     automaton* ptrAuto;
     //bool* q;

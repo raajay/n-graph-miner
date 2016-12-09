@@ -4,8 +4,7 @@
 
 #include "StEpisodeGel.h"
 
-stEpisodeGel::stEpisodeGel()
-{
+stEpisodeGel::stEpisodeGel() {
     iEventLength = 0;
     iEpisodeListLength = 0;
     ptrAlpha = NULL;

@@ -4,8 +4,7 @@
 
 #ifndef N_GRAPH_MINER_READFILE_H
 #define N_GRAPH_MINER_READFILE_H
-class StreamReader
-{
+class StreamReader {
     int* buffer;
     double* time_buffer;
     double time_temp;
@@ -13,7 +12,7 @@ class StreamReader
     ifstream file_ptr;
     void BufferIn();
     void Reset();
-public:
+  public:
     StreamReader(char *);
     ~StreamReader();
     int getnextevent(double&);

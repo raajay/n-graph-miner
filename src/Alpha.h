@@ -6,9 +6,8 @@
 #define N_GRAPH_MINER_ALPHA_H
 #include "Automaton.h"
 #include "super.h"
-class alpha
-{
-public:
+class alpha {
+  public:
     bool flag;
     bool *initWaits;
     long int iFrequency;

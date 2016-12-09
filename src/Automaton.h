@@ -5,9 +5,8 @@
 #ifndef N_GRAPH_MINER_AUTOMATON_H
 #define N_GRAPH_MINER_AUTOMATON_H
 class beta;
-class automaton
-{
-public:
+class automaton {
+  public:
     bool* q;
     bool* w;
     double t1;

@@ -8,24 +8,22 @@
 
 #define BUFFER_SIZE 10000
 
-StreamReader::~StreamReader()
-{
+StreamReader::~StreamReader() {
     file_ptr.close();
     delete []buffer;
     delete []time_buffer;
 }
 
 
-void StreamReader::Reset()
-{
-    for(int i=0;i< BUFFER_SIZE;i++)
-    {	buffer[i]=-1;
-        time_buffer[i]=0;}
+void StreamReader::Reset() {
+    for(int i=0; i< BUFFER_SIZE; i++) {
+        buffer[i]=-1;
+        time_buffer[i]=0;
+    }
 }
 
 
-StreamReader::StreamReader(char* filename)
-{
+StreamReader::StreamReader(char* filename) {
     file_ptr.open(filename,ios::in);
     if(!file_ptr) errorAbort("ERROR :: Input file not read properly ");
 
@@ -35,24 +33,20 @@ StreamReader::StreamReader(char* filename)
 }
 
 
-void StreamReader::BufferIn()
-{
+void StreamReader::BufferIn() {
     Reset();
-    for(int i=0;i< BUFFER_SIZE;i++)
-        if(file_ptr)
-        {
+    for(int i=0; i< BUFFER_SIZE; i++)
+        if(file_ptr) {
             char dummy;
             file_ptr >> buffer[i];
             file_ptr >> dummy;
             file_ptr >> time_buffer[i];
-        }
-        else break;
+        } else break;
     pos = 0;
 }
 
 
-int StreamReader::getnextevent(double &time)
-{
+int StreamReader::getnextevent(double &time) {
     if(pos == BUFFER_SIZE)
         BufferIn();
     time_temp = time_buffer[pos];
@@ -61,8 +55,7 @@ int StreamReader::getnextevent(double &time)
 }
 
 
-int StreamReader::GetNextEvent()
-{
+int StreamReader::GetNextEvent() {
     if(pos == BUFFER_SIZE)
         BufferIn();
     time_temp = time_buffer[pos];
@@ -70,13 +63,11 @@ int StreamReader::GetNextEvent()
 }
 
 
-double StreamReader::GetTime()
-{
+double StreamReader::GetTime() {
     return time_temp;
 }
 
 
-void StreamReader::PushBackOne()
-{
+void StreamReader::PushBackOne() {
     pos--;
 }

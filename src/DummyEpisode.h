@@ -4,9 +4,8 @@
 
 #ifndef N_GRAPH_MINER_DUMMYEPISODE_H
 #define N_GRAPH_MINER_DUMMYEPISODE_H
-class dummyEpisode
-{
-public:
+class dummyEpisode {
+  public:
     int* paiEvents;
     bool** ppEventMatrix;
     dummyEpisode(int);

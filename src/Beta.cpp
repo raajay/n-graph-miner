@@ -4,13 +4,11 @@
 
 #include "Beta.h"
 
-beta::beta(int len)
-{
+beta::beta(int len) {
     ptrAlpha = NULL;
     ptrAuto = NULL;
 }
 
-beta::~beta()
-{
+beta::~beta() {
     //delete []q;
 }
